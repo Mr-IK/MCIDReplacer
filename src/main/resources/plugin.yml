@@ -1,0 +1,11 @@
+name: MCIDReplacer
+version: '${project.version}'
+main: jp.mrik.mcidreplacer.MCIDReplacer
+api-version: 1.16
+authors: [ Mr_IK ]
+description: MCID Replace API
+commands:
+  mrep:
+    description: MCIDReplacer
+    usage: /<command>
+    default: op
