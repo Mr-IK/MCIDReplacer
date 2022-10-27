@@ -34,7 +34,11 @@ public final class MCIDReplacer extends JavaPlugin {
     }
 
     public static void setReplaceData(String mcid,String name){
-        dataMap.put(mcid,name);
+        if(name==null){
+            dataMap.remove(mcid);
+        }else{
+            dataMap.put(mcid,name);
+        }
         mcidRep.getConfig().set(mcid,name);
         mcidRep.saveConfig();
     }
