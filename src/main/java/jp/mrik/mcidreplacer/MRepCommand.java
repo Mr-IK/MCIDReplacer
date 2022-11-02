@@ -27,7 +27,7 @@ public class MRepCommand implements CommandExecutor {
         if (args.length == 0) {
             p.sendMessage("§a/mrep show : MCID置換の情報を表示する");
             p.sendMessage("§a/mrep set [MCID] [置換先] : MCID置換を設定する");
-            p.sendMessage("§a/mdvc del [MCID] : 置換設定を削除する");
+            p.sendMessage("§a/mrep del [MCID] : 置換設定を削除する");
             p.sendMessage("§a/mrep reload : 置換設定用ファイルを再読み込みする");
         }else if(args.length == 1){
             if(args[0].equalsIgnoreCase("show")){
