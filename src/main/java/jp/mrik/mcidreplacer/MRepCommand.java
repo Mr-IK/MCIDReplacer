@@ -17,6 +17,7 @@ public class MRepCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player)) {
+            commandExecute(sender,args);
             return true;
         }
         Player p = (Player) sender;
@@ -24,6 +25,11 @@ public class MRepCommand implements CommandExecutor {
             p.sendMessage("Unknown command. Type \"/help\" for help.");
             return true;
         }
+        commandExecute(p,args);
+        return true;
+    }
+
+    public void commandExecute(CommandSender p,String[] args){
         if (args.length == 0) {
             p.sendMessage("§a/mrep show : MCID置換の情報を表示する");
             p.sendMessage("§a/mrep set [MCID] [置換先] : MCID置換を設定する");
@@ -35,25 +41,20 @@ public class MRepCommand implements CommandExecutor {
                 for(String mcid : MCIDReplacer.getDataMap().keySet()){
                     p.sendMessage("§e"+mcid+"§a: §6"+MCIDReplacer.getReplaceData(mcid));
                 }
-                return true;
             }else if(args[0].equalsIgnoreCase("reload")){
                 MCIDReplacer.reloadReplaceData();
                 p.sendMessage("§aファイル設定をリロードしました");
-                return true;
             }
         }else if(args.length == 2){
             if(args[0].equalsIgnoreCase("del")){
                 MCIDReplacer.setReplaceData(args[1],null);
                 p.sendMessage("§aMCID:§e"+args[1]+" §aの置換を解除しました");
-                return true;
             }
         }else if(args.length == 3){
             if(args[0].equalsIgnoreCase("set")){
                 MCIDReplacer.setReplaceData(args[1],args[2]);
                 p.sendMessage("§aMCID:§e"+args[1]+" §aの置換を §e"+args[2]+" §aにセットしました");
-                return true;
             }
         }
-        return true;
     }
 }
