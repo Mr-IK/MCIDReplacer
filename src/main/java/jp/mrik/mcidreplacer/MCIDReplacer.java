@@ -29,12 +29,12 @@ public final class MCIDReplacer extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
-        event.setJoinMessage("§e"+MCIDReplacer.getReplaceData(event.getPlayer().getName())+" がログインしました");
+        event.setJoinMessage("§e"+MCIDReplacer.getReplaceData(event.getPlayer().getName())+"がゲームに参加しました");
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event){
-        event.setQuitMessage("§e"+MCIDReplacer.getReplaceData(event.getPlayer().getName())+" がログアウトしました");
+        event.setQuitMessage("§e"+MCIDReplacer.getReplaceData(event.getPlayer().getName())+"がゲームを退出しました");
     }
 
     private static AConfigFile mcidRep;
